@@ -42,11 +42,11 @@ pip install mamba-ssm==1.2.0.post1 causal-conv1d==1.2.0.post2
 
 Download the following datasets and place them in the specified paths (configurable in `config_ablation.py`):
 
-| Dataset | Download Link | Default Path in Config |
-|---------|--------------|----------------------|
-| CICIDS2017 | [https://www.unb.ca/cic/datasets/ids-2017.html](https://www.unb.ca/cic/datasets/ids-2017.html) | `D:\Chenhaolei_experiment\dataset\CICIDS2017\MachineLearningCVE` |
-| UNSW-NB15 | [https://research.unsw.edu.au/projects/unsw-nb15-dataset](https://research.unsw.edu.au/projects/unsw-nb15-dataset) | `D:\Chenhaolei_experiment\dataset\UNSW-NB15\CSV Files` |
-| N-BaIoT | [https://www.kaggle.com/datasets/mkashifn/nbaiot-dataset](https://www.kaggle.com/datasets/mkashifn/nbaiot-dataset) | `D:\Chenhaolei_experiment\dataset\N_BaIOT\archive` |
+| Dataset | Path | Classes |
+|---------|------|---------|
+| [CICIDS2017](https://www.unb.ca/cic/datasets/ids-2017.html) | `D:\Chenhaolei_experiment\dataset\CICIDS2017\MachineLearningCVE` | 14 |
+| [UNSW-NB15](https://research.unsw.edu.au/projects/unsw-nb15-dataset) | `D:\Chenhaolei_experiment\dataset\UNSW-NB15\CSV Files` | 10 |
+| [N-BaIoT](https://archive.ics.uci.edu/dataset/442/n+baiot+dataset) | `D:\Chenhaolei_experiment\dataset\N_BaIOT\archive` | 10 |
 
 ## Usage
 
@@ -106,9 +106,9 @@ TSC-FL/
 └── confusion_matrix/          # Confusion matrix utilities
 ```
 
-## Citation
+## License
 
-If you use this code in your research, please cite our paper:
+This project is for research purposes. Please cite our paper if you use this code.
 
 ```bibtex
 @article{tscfl2025,
