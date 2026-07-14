@@ -1,0 +1,34 @@
+﻿# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Training artifacts
+*.csv
+multi_model/
+*.pth
+*.pt
+
+# Datasets (large files)
+*dataset*
+*MachineLearningCVE*
+*CSV Files*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
