@@ -1,15 +1,13 @@
 # TSC-FL: Two-Stage Classifier for Federated Learning
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
 Source code for the paper: **"Efficient Federated Learning Framework for IoT Intrusion Detection: Two-Stage Hierarchical Traffic Classification Method"**
 
 ## Overview
 
 TSC-FL is a two-stage federated learning framework for IoT intrusion detection that decouples benign traffic filtering from fine-grained attack classification:
 
-- **Stage 1 – ResBTD**: ResNet-based Binary Traffic Detector for efficient benign traffic filtering
-- **Stage 2 – MamMTD**: Mamba-based Multi-class Malicious Traffic Detector for accurate attack-type identification
+- **Stage 1 - ResBTD**: ResNet-based Binary Traffic Detector for efficient benign filtering
+- **Stage 2 - MamMTD**: Mamba-based Multi-class Malicious Traffic Detector for accurate attack-type identification
 
 ## Environment
 
@@ -36,17 +34,17 @@ pip install torch==2.4.0 pandas==2.2.3 scikit-learn==1.6.1
 pip install mamba-ssm==1.2.0.post1 causal-conv1d==1.2.0.post2
 ```
 
-**Note for mamba-ssm installation:** See [this guide](https://blog.csdn.net/yyywxk/article/details/146798627#t1) for detailed Windows installation steps.
+**Note for mamba-ssm:** See [this guide](https://blog.csdn.net/yyywxk/article/details/146798627#t1) for detailed Windows installation steps.
 
 ## Datasets
 
-Download the following datasets and place them in the specified paths (configurable in `config_ablation.py`):
+Download the following public datasets and update paths in `config_ablation.py`:
 
-| Dataset | Path | Classes |
-|---------|------|---------|
-| [CICIDS2017](https://www.unb.ca/cic/datasets/ids-2017.html) | `D:\Chenhaolei_experiment\dataset\CICIDS2017\MachineLearningCVE` | 14 |
-| [UNSW-NB15](https://research.unsw.edu.au/projects/unsw-nb15-dataset) | `D:\Chenhaolei_experiment\dataset\UNSW-NB15\CSV Files` | 10 |
-| [N-BaIoT](https://archive.ics.uci.edu/dataset/442/n+baiot+dataset) | `D:\Chenhaolei_experiment\dataset\N_BaIOT\archive` | 10 |
+| Dataset | Link |
+|---------|------|
+| CICIDS2017 | https://www.unb.ca/cic/datasets/ids-2017.html |
+| UNSW-NB15 | https://research.unsw.edu.au/projects/unsw-nb15-dataset |
+| N-BaIoT | https://www.kaggle.com/datasets/mkashifn/nbaiot-dataset |
 
 ## Usage
 
@@ -69,16 +67,16 @@ python run_nbaiot_multi.py --task multi
 ### Ablation Experiments
 
 ```bash
-# Run all ablation experiments on CICIDS2017 (30 rounds)
+# All ablation experiments
 python run_ablation.py --datasets CICIDS2017 --experiment all --rounds 30
 
-# Specific ablation categories
-python run_ablation.py --datasets CICIDS2017 --experiment stage      # Single-stage vs two-stage
-python run_ablation.py --datasets CICIDS2017 --experiment stage1     # Stage 1 backbone variants
-python run_ablation.py --datasets CICIDS2017 --experiment stage2     # Stage 2 classifier variants
-python run_ablation.py --datasets CICIDS2017 --experiment partition  # Non-IID partition strategies
+# Specific categories
+python run_ablation.py --datasets CICIDS2017 --experiment stage      # Single vs two-stage
+python run_ablation.py --datasets CICIDS2017 --experiment stage1     # Stage 1 backbones
+python run_ablation.py --datasets CICIDS2017 --experiment stage2     # Stage 2 classifiers
+python run_ablation.py --datasets CICIDS2017 --experiment partition  # Non-IID partitions
 
-# Run on multiple datasets
+# Multiple datasets
 python run_ablation.py --datasets CICIDS2017 UNSW-NB15 Nba-IoT --experiment all --rounds 30
 ```
 
@@ -86,35 +84,31 @@ python run_ablation.py --datasets CICIDS2017 UNSW-NB15 Nba-IoT --experiment all 
 
 ```
 TSC-FL/
-├── run_cicids2017_multi.py    # CICIDS2017 training script
-├── run_unsw_nb15_multi.py     # UNSW-NB15 training script
-├── run_nbaiot_multi.py        # N-BaIoT training script
+├── run_cicids2017_multi.py    # CICIDS2017 training
+├── run_unsw_nb15_multi.py     # UNSW-NB15 training
+├── run_nbaiot_multi.py        # N-BaIoT training
 ├── run_ablation.py            # Ablation experiment runner
-├── config_ablation.py         # Ablation experiment configurations
-├── MamMTD/                    # Multi-class classification module
+├── config_ablation.py         # Experiment configurations
+├── MamMTD/                    # Multi-class classification
 │   ├── multi_Classification.py
 │   ├── train_Multi.py
-│   ├── data_process/          # Data preprocessing
-│   └── ablation/              # Ablation experiment components
+│   ├── data_process/
+│   └── ablation/
 │       ├── trainer.py
 │       ├── stage1_backbones.py
 │       ├── stage2_classifiers.py
 │       ├── data_partition.py
 │       └── single_stage.py
-├── ResBTD/                    # Binary classification module
-│   └── binary_Classification.py
-└── confusion_matrix/          # Confusion matrix utilities
+└── ResBTD/                    # Binary classification
+    └── binary_Classification.py
 ```
 
-## License
-
-This project is for research purposes. Please cite our paper if you use this code.
+## Citation
 
 ```bibtex
 @article{tscfl2025,
   title={Efficient Federated Learning Framework for IoT Intrusion Detection: Two-Stage Hierarchical Traffic Classification Method},
   author={Chen, Haolei and Dong, Jingnan and Shen, Shigen and Xu, Guangxia and Liu, Jun and Liu, Zhiquan},
-  journal={...},
   year={2025}
 }
 ```
