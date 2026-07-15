@@ -108,7 +108,7 @@ TSC-FL/
 ```bibtex
 @article{tscfl2025,
   title={Efficient Federated Learning Framework for IoT Intrusion Detection: Two-Stage Hierarchical Traffic Classification Method},
-  author={Chen, Haolei and Dong, Jingnan and Shen, Shigen and Xu, Guangxia and Liu, Jun and Liu, Zhiquan},
+  author={Dong, Jingnan and Chen, Haolei and Shen, Shigen and Xu, Guangxia and Liu, Jun and Liu, Zhiquan},
   year={2025}
 }
 ```
